@@ -1,0 +1,9 @@
+<%= link_to "ログイン", tokoyus_path %>
+<%= link_to "新規登録", new_user_registration_path %>
+<h1>自分に合うアニメを探そう！</h1>
+
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+<%= link_to '診断', :controller => "perfumes", :action => "index" %>

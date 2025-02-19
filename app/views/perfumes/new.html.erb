@@ -1,0 +1,44 @@
+<%= form_for(@perfume, class: 'form-horizontal', role: 'form') do |f| %>
+    <div class="perfume-container">
+        <div class="col-12">
+            <p>Q1. 戦闘系と日常系どちらが好き？</p>
+        </div>
+        <div class="col-6">
+            <%= f.radio_button :question1, "1", id: "custom_id1" %>
+            <label for="custom_id1">戦闘系</label>
+            <%= f.radio_button :question1, "2", id: "custom_id2" %>
+            <label for="custom_id2">日常系</label>
+        </div>
+        <div class="col-12">
+            <p>Q2. アニメの作画や音楽について</p>
+        </div> 
+        <div class="col-6">
+            <%= f.radio_button :question2, "1", id: "custom_id3" %>
+            <label for="custom_id3">重視する</label>
+            <%= f.radio_button :question2, "2", id: "custom_id4" %>
+            <label for="custom_id4">そこまで重要では無いと思う</label>
+        </div>   
+        <div class="col-12">
+            <p>Q3. 明るいアニメと暗いアニメは、、、</p>
+        </div>
+        <div class="col-6">
+            <%= f.radio_button :question3, "1", id: "custom_id5" %>
+            <label for="custom_id5">明るい方が好き</label>
+            <%= f.radio_button :question3, "2", id: "custom_id6" %>
+            <label for="custom_id6">暗い方が好き</label>
+        </div>
+    
+        <div class="col-12">
+            <p>Q4. 過激な描写は</p>
+        </div>
+        <div class="col-6">
+            <%= f.radio_button :question4, "1", id: "custom_id7" %>
+            <label for="custom_id7">あまり得意ではない</label>
+            <%= f.radio_button :question4, "2", id: "custom_id8" %>
+            <label for="custom_id8">あっても良いと思う</label>
+        </div>
+    </div>
+    <div class="sindanbotan">
+        <%= f.submit " 結果 " %>
+    </div>
+<% end %>
