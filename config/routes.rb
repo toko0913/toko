@@ -11,5 +11,9 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :tokoyus
   resources :perfumes
+  resources :animes do
+    resources :comments, only: [:create, :destroy]
+  end
+
   root 'tokoyus#index'
 end 

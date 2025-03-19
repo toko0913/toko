@@ -73,3 +73,8 @@ group :production do
 end
 
 gem 'dotenv-rails'
+
+gem "sassc"
+gem 'dotenv-rails'
+gem 'cloudinary'
+gem 'activestorage-cloudinary-service'

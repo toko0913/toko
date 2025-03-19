@@ -1,16 +1,30 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Toko</title>
+    <title>B.A.E.L</title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class="title">
+        <%= link_to "Bringing Anime Every Life", tokoyus_path %>
+      </div>
+      <div class="menu">
+        <% if user_signed_in? %>
+          <li class="text"><%= link_to "profile", user_path(current_user.id) %></li>
+        <% else %>
+          <li class="text"><%= link_to "sign up", new_user_registration_path %></li>
+          <li class="text"><%= link_to "sign in", tokoyus_path %></li>
+        <% end %>
+    </header>
+    <main>
+      <%= yield %>
+      </main>
   </body>
 </html>

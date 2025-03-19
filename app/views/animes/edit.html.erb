@@ -1,0 +1,7 @@
+<%= form_for @anime do |f| %>
+    <%= f.label :題名 %>
+    <%= f.text_field :name, :size => 140 %> 
+    <%= f.label :概要 %>
+    <%= f.text_field :about, :size => 140 %> 
+    <%= f.submit "編集する" %>
+  <% end %>

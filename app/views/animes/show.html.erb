@@ -1,0 +1,46 @@
+<div class="taitoru2">
+<h1>アニメ詳細</h1>
+</div>
+<div class="taitorushousai">
+  <p><%= @anime.name %></p>
+</div>
+<div class="about2">
+  <p><%= @anime.about %></p>
+</div>
+
+<div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+      <%= c.user.email unless c.user.blank? %>
+      <br>
+      <%= c.content %>
+      <br>
+      <% if c.user_id == current_user.id %>
+        <%= button_to "削除", anime_comment_path(@anime, c), method: :delete %>
+      <% end %>
+    </div>
+  <% end %>
+
+
+  <% @anime.comments.each do |comment| %>
+  <div class="comment">
+    <p><%= comment.content %></p>
+    <p>投稿者: <%= comment.user.email %></p>
+
+    
+  </div>
+<% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@anime, @comment], local: true) do |f| %>
+      <%= f.text_area :content %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-comments"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "Tweet一覧に戻る", animes_path %>
+<%= link_to "編集する", edit_anime_path(@anime.id) %>

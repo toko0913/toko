@@ -1,0 +1,23 @@
+<div class="dekai">
+<h1>これだけは見て欲しいアニメ５選！！</h1>
+</div>
+<h3>一覧</h3>
+
+<div class="tweets-container">
+    <% @animes.each do |t| %>
+        <div class="taitoru">
+            <%= t.name %>
+        </div> 
+        <div class="shasinn">
+            <% if t.image.attached? %>
+                    <%= image_tag t.image, size: '250x200'%>
+            <% end %>
+        </div>
+        <div class="naiyou">
+            <%= t.about %>
+            <%= link_to "詳細へ", anime_path(t.id) %>
+        </div>
+        <%= button_to "", anime_path(t.id), method: :delete %>
+        
+    <% end %>
+</div>
